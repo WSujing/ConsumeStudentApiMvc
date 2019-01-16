@@ -1,0 +1,36 @@
+﻿@model ConsumeStudentApiMvc.Models.StudentViewModel
+@{
+    ViewBag.Title = "create";
+}
+
+<h2>Create New Student</h2>
+
+@using (Html.BeginForm("Create", "Home"))
+{
+    <div class="form-group">
+        @Html.LabelFor(c => c.Student.Name)
+        @Html.TextBoxFor(c => c.Student.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(c => c.Student.Name)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(c => c.Student.StudentId)
+        @Html.TextBoxFor(c => c.Student.StudentId, new { @class = "form-control" })
+        @Html.ValidationMessageFor(c => c.Student.StudentId)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(c => c.Student.Address)
+        @Html.TextBoxFor(c => c.Student.Address, new { @class = "form-control" })
+        @Html.ValidationMessageFor(c => c.Student.Address)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(c => c.Student.CourseId)
+        @Html.DropDownListFor(c => c.Student.CourseId, new SelectList(Model.Courses, "Id", "Name"), "", new { @class = "form-control" })
+        @Html.ValidationMessageFor(c => c.Student.CourseId)
+    </div>
+    @Html.AntiForgeryToken()
+    <button type="submit" class="btn btn-primary">Save</button>
+}
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+}

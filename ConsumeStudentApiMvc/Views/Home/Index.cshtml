@@ -1,0 +1,28 @@
+﻿@model IEnumerable<ConsumeStudentApiMvc.Models.Student>
+
+<h2>Student List</h2>
+<p>@Html.ActionLink("Add New Student", "Create", "Home", null, new { @class = "btn btn-primary" })</p>
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Student</th>
+            <th>Student Id</th>
+            <th>Course</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var student in Model)
+        {
+        <tr>
+            <td>@Html.ActionLink(student.Name, "Detail", "Home", new { id = student.Id }, null)</td>
+            <td>@student.StudentId</td>
+            <td>@student.Course.Name</td>
+            <td>@Html.ActionLink("Edit", "Edit", "Home", new { id = student.Id }, null)</td>
+            <td>@Html.ActionLink("Delete", "Delete", "Home", new { id = student.Id }, null)</td>
+        </tr>
+        }
+    </tbody>
+</table>
