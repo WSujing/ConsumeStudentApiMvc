@@ -29,11 +29,10 @@ namespace ConsumeStudentApiMvc.Controllers
 
                     students = readTask.Result;
                 }
-                else //web api sent error response 
-                {
-                    //log response status here..
+                else 
+                {                   
 
-                    students = Enumerable.Empty<Student>();
+                   students = Enumerable.Empty<Student>();
 
                     ModelState.AddModelError(string.Empty, "Server error. Please contact administrator.");
                 }
@@ -60,9 +59,8 @@ namespace ConsumeStudentApiMvc.Controllers
 
                     student = readTask.Result;
                 }
-                else //web api sent error response 
+                else 
                 {
-                    //log response status here..
 
                     ModelState.AddModelError(string.Empty, "Server error. Please contact administrator.");
                 }
@@ -89,9 +87,8 @@ namespace ConsumeStudentApiMvc.Controllers
 
                     courses = readTask.Result;
                 }
-                else //web api sent error response 
+                else 
                 {
-                    //log response status here..
 
                     courses = Enumerable.Empty<Course>();
 
